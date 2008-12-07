@@ -1,0 +1,2 @@
+(function($){$.fn.extend({tabify:function(){return this.each(function(){$(this).find("li").each(function(){if($(this).hasClass("active")){$("#"+$(this).attr("rel")).show();}else{$("#"+$(this).attr("rel")).hide();}
+$(this).click(function(){$(this).parent().find("li").each(function(){$(this).removeClass("active");$("#"+$(this).attr("rel")).hide();});$("#"+$(this).attr("rel")).show();$(this).addClass("active");});});});}});})(jQuery);
