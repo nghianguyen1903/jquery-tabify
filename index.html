@@ -88,12 +88,15 @@
 		</div>
 				
 		<script src="jquery.js" type="text/javascript" charset="utf-8"></script>
-		<script src="jquery.tabify.js" type="text/javascript" charset="utf-8"></script>
+		<script src="jquery.tabify.source.js" type="text/javascript" charset="utf-8"></script>
 		<script type="text/javascript">
 			// <![CDATA[
 				
 			$(document).ready(function () {
 				$('#menu').tabify();
+				$('#menu').bind('tab-change.tabify', function(){
+					console.log('TAB CHNAGE');
+				});
 				$('#menu2').tabify();
 			});
 					

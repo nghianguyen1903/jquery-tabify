@@ -1,7 +1,7 @@
 /**
 *	@name							Tabify
 *	@descripton						Tabbed content with ease
-*	@version						1.4
+*	@version						1.5
 *	@requires						Jquery 1.3.2
 *
 *	@author							Jan Jarfalk
@@ -22,19 +22,23 @@
 				return hash;
 			}
 			
-		 	function setActive(el){
+		 	function setActive( tab, ul ){
 		 		
-				$(el).addClass('active');
-				$(getHref(el)).show();
-				$(el).siblings('li').each(function(){
+				$(tab).addClass('active');
+				$(getHref(tab)).show();
+				$(tab).siblings('li').each(function(){
 					$(this).removeClass('active');
 					$(getHref(this)).hide();
 				});
+
+				$(ul).trigger('tab-change.tabify');
+				
 			}
 			
 			return this.each(function() {
 			
 				var self = this;
+				var oldHash;
 				var	callbackArguments 	=	{'ul':$(self)};
 					
 				$(this).find('li a').each(function(){
@@ -43,8 +47,9 @@
 				
 				function handleHash(){
 					
-					if(location.hash && $(self).find('a[href=' + location.hash + ']').length > 0){				
-						setActive($(self).find('a[href=' + location.hash + ']').parent());
+					if(location.hash && location.hash !== oldHash && $(self).find('a[href=' + location.hash + ']').length > 0){
+						oldHash = location.hash;				
+						setActive($(self).find('a[href=' + location.hash + ']').parent(), self);
 					}
 				}
 				
