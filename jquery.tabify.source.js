@@ -31,6 +31,7 @@
 					$(getHref(this)).hide();
 				});
 
+				$(tab).trigger('tab-activated.tabify');
 				$(ul).trigger('tab-change.tabify');
 				
 			}
