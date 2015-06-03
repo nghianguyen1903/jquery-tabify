@@ -1,0 +1,1 @@
+This Jquery plugin lets you with ease create tabbed content. All you need is an ul-element with some li-elements and a couple of related content-divs. The major difference between Tabify and it's competitors is it's size.
